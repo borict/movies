@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Movie;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class MoviesController extends Controller
@@ -19,14 +20,16 @@ class MoviesController extends Controller
     {
         return view('create');
     }
-    public function store()
-    {
-        $this->validate(
-            request(),
-            [
-                'title' => 'required|max:20',
-                'body' => 'required'
-            ]
-        );
+    //
+    public function store(Request $request) {
+        $now = new Carbon();
+        $year = $now->year;
+        $rules = Movie::STORE_RULES;
+        $rules['year'] = str_replace('$year', $year, $rules['year']);
+    	$request->validate($rules);
+    	$movie = Movie::create($request->all());
+    	return view('movies.show', compact('movie'));
     }
+
+
 }
