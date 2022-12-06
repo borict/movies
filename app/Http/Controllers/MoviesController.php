@@ -15,4 +15,18 @@ class MoviesController extends Controller
         $movie = Movie::find($id);
         return view('show', compact('movie'));
     }
+    public function create()
+    {
+        return view('create');
+    }
+    public function store()
+    {
+        $this->validate(
+            request(),
+            [
+                'title' => 'required|max:20',
+                'body' => 'required'
+            ]
+        );
+    }
 }
