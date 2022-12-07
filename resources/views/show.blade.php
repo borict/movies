@@ -1,3 +1,4 @@
+@extends('layouts.master')
 <h1>Movie</h1>
 <h2>{{ $movie->title }}</h2>
 <a href="/users/{{ $movie->title }}"></a>
