@@ -19,7 +19,7 @@ class MoviesController extends Controller
     {
         return view('create');
     }
-    //
+
     public function store(Request $request) {
         $this->validate(
             request(),
@@ -42,6 +42,4 @@ class MoviesController extends Controller
             );
         return redirect('/');
     }
-
-
 }

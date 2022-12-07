@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('movie_id')->constrained()->cascadeOnDelete();
             $table->longText('content');
-            $table->timestamp('created_at');
+            $table->timestamps();
         });
     }
 
