@@ -3,9 +3,7 @@
 <ul>
 @foreach ($movies as $movie)
     <li>
-        {{-- {{$movie->title}}
-        {{$movie->storyline}} --}}
-        <a href="{{ route('single-post', ['id' => $movie->id]) }}">{{ $movie->title }}</a>
+        <a href="{{ route('single-movie', ['id' => $movie->id]) }}">{{ $movie->title }}</a>
     </li>
     @endforeach
 </ul>

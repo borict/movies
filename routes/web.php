@@ -14,11 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/movies', [MoviesController::class, 'index']);
-Route::get('/movies/{id}', [MoviesController::class, 'show'])->name('single-post');
+Route::get('/', [MoviesController::class, 'index'])->name('all-movies');
+Route::get('/movies/{id}', [MoviesController::class, 'show'])->name('single-movie');
 Route::get('/create', [MoviesController::class, 'create']);
 Route::post('/movies', [MoviesController::class, 'store']);
 

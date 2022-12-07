@@ -36,11 +36,11 @@ class MoviesController extends Controller
                 'title' => request('title'),
                 'genre' => request('genre'),
                 'director' => request('director'),
-                'release_date' => request('release_date'),
+                'year' => request('year'),
                 'storyline' => request('storyline')
             ]
             );
-        return redirect('/movies');
+        return redirect('/');
     }
 
 
